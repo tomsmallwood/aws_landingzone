@@ -47,6 +47,10 @@ export AWS_DEFAULT_REGION=us-east-1
 
 <img src="images/step-6.png" width="500px">
 
+* Success:
+
+<img src="images/step-7.png" width="500px">
+
 
 ### 3. Create S3 Bucket for Terraform Backend
 Instructions to manually create a secure AWS S3 bucket via AWS CLI, to be used as the first Terraform backend.
