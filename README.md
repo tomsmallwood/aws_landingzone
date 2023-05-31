@@ -63,9 +63,33 @@ aws s3api create-bucket --bucket anuj-tfbackend --object-lock-enabled-for-bucket
 ***Since April 2023, S3 Public Access Block is enabled by default.***
 
 ### 4. Bootstrap OUs and AWS Accounts
+
+#### Input Variables file
+
+Using variables and account IDs from Control Tower, complete variables file at `./tfvars/prod.tfvars`:
+```
+admin_profile                = ""
+allowed_account_ids          = [""]
+ct_management_account_id     = ""
+log_archive_account_id       = ""
+audit_account_id             = ""
+aft_management_account_email = ""
+```
+
+#### Backend Config file
+Complete the backend config at `./backends/finops.backend.tfvars`:
+```
+profile = "123_abc"
+key     = "xyz-aft"
+bucket  = "example-tfbackend"
+region  = "us-east-1"
+```
+
+#### Deploy
+
 ```sh
 terraform init -backend-config=./backends/finops.backend.tfvars
-terraform plan -var-file=./tfvars/prod.tfvars
+terraform apply -var-file=./tfvars/prod.tfvars
 ```
 
 ### 5. Deploy AFT
@@ -118,7 +142,7 @@ See: https://github.com/aws-ia/terraform-aws-control_tower_account_factory/tree/
 | <a name="input_audit_account_id"></a> [audit\_account\_id](#input\_audit\_account\_id) | Auditing account ID | `string` | n/a | yes |
 | <a name="input_ct_home_region"></a> [ct\_home\_region](#input\_ct\_home\_region) | Control Tower home AWS region | `string` | `"us-east-1"` | no |
 | <a name="input_ct_management_account_id"></a> [ct\_management\_account\_id](#input\_ct\_management\_account\_id) | AWS Control Tower Management account ID | `string` | n/a | yes |
-| <a name="input_logging_account_id"></a> [logging\_account\_id](#input\_logging\_account\_id) | Log Archive account ID | `string` | n/a | yes |
+| <a name="input_log_archive_account_id"></a> [log\_archive\_account\_id](#input\_log\_archive\_account\_id) | Log Archive account ID | `string` | n/a | yes |
 | <a name="input_tf_backend_secondary_region"></a> [tf\_backend\_secondary\_region](#input\_tf\_backend\_secondary\_region) | Secondary region to replicate the AFT backend | `string` | `"us-west-1"` | no |
 
 ## Outputs

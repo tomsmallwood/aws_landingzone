@@ -12,7 +12,7 @@ module "aft" {
   # Required Vars
   ct_management_account_id  = var.ct_management_account_id
   aft_management_account_id = aws_organizations_account.aft.id
-  log_archive_account_id    = var.logging_account_id
+  log_archive_account_id    = var.log_archive_account_id
   audit_account_id          = var.audit_account_id
 
   ct_home_region              = var.ct_home_region

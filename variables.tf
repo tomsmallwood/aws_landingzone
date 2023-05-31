@@ -21,7 +21,7 @@ variable "ct_management_account_id" {
 }
 
 # Log Archive account ID
-variable "logging_account_id" {
+variable "log_archive_account_id" {
   type = string
 }
 
