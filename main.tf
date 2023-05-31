@@ -15,10 +15,10 @@ module "aft" {
 
   # VCS Vars
   vcs_provider                                  = "github"
-  account_request_repo_name                     = "tomsmallwood/terraform-aws-control_tower_account_factory//sources/aft-customizations-repos/aft-account-request"
-  global_customizations_repo_name               = "tomsmallwood/terraform-aws-control_tower_account_factory//sources/aft-customizations-repos/aft-global-customizations"
-  account_customizations_repo_name              = "tomsmallwood/terraform-aws-control_tower_account_factory//sources/aft-customizations-repos/aft-account-customizations"
-  account_provisioning_customizations_repo_name = "tomsmallwood/terraform-aws-control_tower_account_factory//sources/aft-customizations-repos/aft-account-provisioning-customizations"
+  account_request_repo_name                     = "tomsmallwood/aft-account-request"
+  global_customizations_repo_name               = "tomsmallwood/aft-global-customizations"
+  account_customizations_repo_name              = "tomsmallwood/aft-account-customizations"
+  account_provisioning_customizations_repo_name = "tomsmallwood/aft-account-provisioning-customizations"
 
   # Opt out of reporting metrics
   aft_metrics_reporting = false

@@ -101,11 +101,19 @@ AFT Module: https://github.com/aws-ia/terraform-aws-control_tower_account_factor
 
 ### 6. Post Deployment
 
-* manually enroll `AFT-Management` Organizational Unit:
+https://docs.aws.amazon.com/controltower/latest/userguide/aft-post-deployment.html
 
-<img src="images/post-deploy-1.png" width="500px">
+1. manually enroll `AFT-Management` Organizational Unit:
 
-* manually sign in to the AFT management account’s console to complete the pending AWS CodeStar connection. See [the AWS CodeStar documentation](https://docs.aws.amazon.com/dtconsole/latest/userguide/connections-update.html) for further instructions on completing the AWS CodeStar connection.
+<img src="images/post-deploy-1.png" width="70%">
+
+2. Create the 4 new Github repos based on the starting content from the 4 folders under: https://github.com/aws-ia/terraform-aws-control_tower_account_factory/tree/main/sources/aft-customizations-repos
+
+3. manually sign in to the AFT management account’s console, and `Update pending connection` under [AWS CodeStar connections](https://us-east-1.console.aws.amazon.com/codesuite/settings/connections?region=us-east-1) from the right region, and configure the Github Integration to read all 4 new repos.
+
+https://docs.aws.amazon.com/dtconsole/latest/userguide/connections-update.html
+
+<img src="images/post-deploy-2.png" width="70%">
 
 
 ## Terraform Docs
