@@ -25,7 +25,7 @@ aws s3api create-bucket --bucket anuj-tfbackend --object-lock-enabled-for-bucket
 
 ### 3. Bootstrap OUs and AWS Accounts
 ```sh
-terraform init -backend-config=./backends/finops.backend
+terraform init -backend-config=./backends/finops.backend.tfvars
 terraform plan -var-file=./tfvars/prod.tfvars
 ```
 
@@ -86,6 +86,7 @@ See: https://github.com/aws-ia/terraform-aws-control_tower_account_factory/tree/
 
 | Name | Type |
 |------|------|
+| [aws_organizations_account.aft](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/organizations_account) | resource |
 | [aws_organizations_organization.org](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/organizations_organization) | resource |
 | [aws_organizations_organizational_unit.aft_management](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/organizations_organizational_unit) | resource |
 | [aws_organizations_organizational_units.root](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/organizations_organizational_units) | data source |
@@ -95,9 +96,13 @@ See: https://github.com/aws-ia/terraform-aws-control_tower_account_factory/tree/
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_admin_profile"></a> [admin\_profile](#input\_admin\_profile) | AWS profile used to bootstrap the AWS Organization for Control Tower | `string` | n/a | yes |
+| <a name="input_aft_management_account_email"></a> [aft\_management\_account\_email](#input\_aft\_management\_account\_email) | Account Factory for Terraform management account email address | `string` | n/a | yes |
 | <a name="input_allowed_account_ids"></a> [allowed\_account\_ids](#input\_allowed\_account\_ids) | list of allowed AWS account IDs to prevent you from mistakenly using an incorrect one | `list(string)` | n/a | yes |
+| <a name="input_audit_account_id"></a> [audit\_account\_id](#input\_audit\_account\_id) | Auditing account ID | `string` | n/a | yes |
+| <a name="input_ct_home_region"></a> [ct\_home\_region](#input\_ct\_home\_region) | Control Tower home AWS region | `string` | `"us-east-1"` | no |
 | <a name="input_ct_management_account_id"></a> [ct\_management\_account\_id](#input\_ct\_management\_account\_id) | AWS Control Tower Management account ID | `string` | n/a | yes |
-| <a name="input_region"></a> [region](#input\_region) | default AWS region | `string` | `"us-east-1"` | no |
+| <a name="input_logging_account_id"></a> [logging\_account\_id](#input\_logging\_account\_id) | Log Archive account ID | `string` | n/a | yes |
+| <a name="input_tf_backend_secondary_region"></a> [tf\_backend\_secondary\_region](#input\_tf\_backend\_secondary\_region) | Secondary region to replicate the AFT backend | `string` | `"us-west-1"` | no |
 
 ## Outputs
 
