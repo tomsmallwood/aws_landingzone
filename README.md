@@ -13,23 +13,7 @@ export AWS_DEFAULT_PROFILE=123_abc
 export AWS_DEFAULT_REGION=us-east-1
 ```
 
-### 2. Create S3 Bucket for Terraform Backend
-Instructions to manually create a secure AWS S3 bucket via AWS CLI, to be used as the first Terraform backend.
-
-Create S3 Bucket (object-lock enabled):
-```sh
-aws s3api create-bucket --bucket anuj-tfbackend --object-lock-enabled-for-bucket
-```
-
-***Since April 2023, S3 Public Access Block is enabled by default.***
-
-### 3. Bootstrap OUs and AWS Accounts
-```sh
-terraform init -backend-config=./backends/finops.backend.tfvars
-terraform plan -var-file=./tfvars/prod.tfvars
-```
-
-### 4. Enable AWS Control Tower Landing Zone
+### 2. Enable AWS Control Tower Landing Zone
 
 * Launch your AWS Control Tower landing zone in `us-east-1`:
 
@@ -45,11 +29,40 @@ terraform plan -var-file=./tfvars/prod.tfvars
 
 * Select regions to enable:
 
-<img src="images/step-3.png" width="500px">
+<img src="images/step-3-1.png" width="500px">
+
+<img src="images/step-3-2.png" width="500px">
 
 * Configure OUs:
 
 <img src="images/step-4.png" width="500px">
+
+* Setup additional required accounts:
+
+<img src="images/step-5-1.png" width="500px">
+
+<img src="images/step-5-2.png" width="500px">
+
+* Enable CloudTrail:
+
+<img src="images/step-6.png" width="500px">
+
+
+### 3. Create S3 Bucket for Terraform Backend
+Instructions to manually create a secure AWS S3 bucket via AWS CLI, to be used as the first Terraform backend.
+
+Create S3 Bucket (object-lock enabled):
+```sh
+aws s3api create-bucket --bucket anuj-tfbackend --object-lock-enabled-for-bucket
+```
+
+***Since April 2023, S3 Public Access Block is enabled by default.***
+
+### 4. Bootstrap OUs and AWS Accounts
+```sh
+terraform init -backend-config=./backends/finops.backend.tfvars
+terraform plan -var-file=./tfvars/prod.tfvars
+```
 
 ### 5. Deploy AFT
 
