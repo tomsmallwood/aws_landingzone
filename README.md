@@ -97,11 +97,13 @@ terraform init -backend-config=./backends/finops.backend.tfvars
 terraform apply -var-file=./tfvars/prod.tfvars
 ```
 
-### 5. Deploy AFT
-
-See: https://github.com/aws-ia/terraform-aws-control_tower_account_factory/tree/main#configure-and-launch-your-aws-control-tower-account-factory-for-terraform
+AFT Module: https://github.com/aws-ia/terraform-aws-control_tower_account_factory/tree/main#configure-and-launch-your-aws-control-tower-account-factory-for-terraform
 
 ### 6. Post Deployment
+
+* manually enroll `AFT-Management` Organizational Unit:
+
+<img src="images/post-deploy-1.png" width="500px">
 
 * manually sign in to the AFT management account’s console to complete the pending AWS CodeStar connection. See [the AWS CodeStar documentation](https://docs.aws.amazon.com/dtconsole/latest/userguide/connections-update.html) for further instructions on completing the AWS CodeStar connection.
 
@@ -152,5 +154,7 @@ See: https://github.com/aws-ia/terraform-aws-control_tower_account_factory/tree/
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_aft_management_account_id"></a> [aft\_management\_account\_id](#output\_aft\_management\_account\_id) | n/a |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
