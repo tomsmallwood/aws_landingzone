@@ -133,8 +133,8 @@ See: https://github.com/aws-ia/terraform-aws-control_tower_account_factory/tree/
 | Name | Type |
 |------|------|
 | [aws_organizations_account.aft](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/organizations_account) | resource |
-| [aws_organizations_organization.org](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/organizations_organization) | resource |
 | [aws_organizations_organizational_unit.aft_management](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/organizations_organizational_unit) | resource |
+| [aws_organizations_organization.org](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/organizations_organization) | data source |
 | [aws_organizations_organizational_units.root](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/organizations_organizational_units) | data source |
 
 ## Inputs

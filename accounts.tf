@@ -1,5 +1,5 @@
 data "aws_organizations_organizational_units" "root" {
-  parent_id = aws_organizations_organization.org.roots[0].id
+  parent_id = data.aws_organizations_organization.org.roots[0].id
 }
 
 resource "aws_organizations_organizational_unit" "aft_management" {
