@@ -1,6 +1,11 @@
 # AWS Control Tower Landing Zone (AFT)
 Deploys an AWS Organization using AWS Control Tower AFT (Account Factory for Terraform).
 
+Approximate cost breakdown:
+```
+Total Monthly Cost:        176.4552 USD
+```
+
 The bootstrap steps performed below are defined in the AWS-maintained repo [Terraform AWS Control Tower Account Factory](https://github.com/aws-ia/terraform-aws-control_tower_account_factory/tree/main#configure-and-launch-your-aws-control-tower-account-factory-for-terraform).
 
 
