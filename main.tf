@@ -5,6 +5,6 @@ data "aws_organizations_organizational_units" "root" {
 }
 
 resource "aws_organizations_organizational_unit" "infrastructure" {
-  parent_id = aws_organizations_organizational_units.root.id
+  parent_id = data.aws_organizations_organizational_units.root.id
   name      = "Infrastructure"
 }
