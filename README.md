@@ -1,7 +1,7 @@
 # AWS Landing Zone
 Project deploys Control Tower Controls against OUs in the AWS Organization.
 
-## Prerequisites 
+## Prerequisites
 ### 1. Setup AWS Management account
 AWS Control Tower Requires a standalone AWS account in order to configure AWS Organizations/ Control Tower.
 
@@ -76,5 +76,42 @@ terraform apply -var-file=./tfvars/prod.tfvars
 ## Terraform Docs
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Requirements
 
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.4.6 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 4.67.0 |
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.0.1 |
+
+## Modules
+
+No modules.
+
+## Resources
+
+| Name | Type |
+|------|------|
+| [aws_controltower_control.ec2_vol_inuse](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/controltower_control) | resource |
+| [aws_organizations_organizational_unit.infrastructure](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/organizations_organizational_unit) | resource |
+| [aws_organizations_organization.org](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/organizations_organization) | data source |
+| [aws_organizations_organizational_units.root](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/organizations_organizational_units) | data source |
+| [aws_region.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/region) | data source |
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_management_account"></a> [management\_account](#input\_management\_account) | n/a | `string` | n/a | yes |
+| <a name="input_profile"></a> [profile](#input\_profile) | n/a | `string` | n/a | yes |
+| <a name="input_region"></a> [region](#input\_region) | n/a | `string` | `"us-east-1"` | no |
+
+## Outputs
+
+No outputs.
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
